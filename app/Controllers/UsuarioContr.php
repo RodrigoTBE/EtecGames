@@ -46,11 +46,48 @@ class UsuarioContr extends BaseController
         echo view('footer');
     }
 
+    public function alterarUsuario()
+    {
+        $request = service('request');
+        $codUsuAlterar = $request->getPost('codUsuAlterar');
+        //$emailUsu = $request->getPost('emailUsu');
+        //$codUsuAlterarF = $request->getPost('codUsuAlterarF');
+
+        $UsuarioModel = new \App\Models\UsuarioModel();
+        $registros=$UsuarioModel->find($codUsuAlterar);
+
+        $emailUsu = $request->getPost('emailUsu');
+        $codUsuAlterarF = $request->getPost('codUsuAlterarF');
+
+        if ($codUsuAlterarF) {
+            $registros->emailUsu = $emailUsu;
+
+            if ($UsuarioModel->update($codUsuAlterarF, $registros)) {
+                return redirect()->to(base_url('UsuarioController/todosUsuarios'));
+            } else {
+                return redirect()->to(base_url('UsuarioController/todosUsuarios'));
+            }
+        }
+
+        $data['usuario']=$registros;
+
+        echo view('header');
+        echo view('alterarFormUsu', $data);
+        echo view('footer');
+    }
+
     public function todosUsuarios()
     {
         $UsuarioModel = new \App\Models\UsuarioModel();
         $registros = $UsuarioModel->find();
         $data['usuarios'] = $registros;
+
+        $request = service('request');
+        $codUsuAlterar = $request->getPost('codUsuAlterar');
+
+        if ($codUsuAlterar) {
+            return $this->alterarUsuario($codUsuAlterar);
+        }
 
         echo view('header');
         echo view('listaUsuario', $data);
@@ -63,8 +100,8 @@ class UsuarioContr extends BaseController
         $codUsuario = $request->getPost('codUsu');
         $UsuarioModel = new \App\Models\UsuarioModel();
         $registros = $UsuarioModel->find($codUsuario);
-    
-        $data['usuario']= $registros;
+
+        $data['usuario'] = $registros;
 
         echo view('header');
         echo view('listaCodUsu', $data);

@@ -3,7 +3,8 @@
     <thead>
         <th>Código</th>
         <th>E-mail</th>
-        <th>Senha</th>
+        <th>Alterar</th>
+        <th>Deletar</th>
     </thead>
     <tbody>
         <?php
@@ -16,7 +17,13 @@
                     <?php echo ($usuario->emailUsu) ?>
                 </td>
                 <td>
-                    <?php echo ($usuario->SenhaUsu) ?>
+                    <form method="post">
+                        <input type="hidden" name="codUsuAlterar" value="<?php echo($usuario->codusu); ?>">
+                        <button type="submit" class="btn btn-danger">Alterar</button>
+                    </form>
+                </td>
+                <td>
+                    X
                 </td>
             </tr>
         <?php endforeach; ?>
