@@ -50,23 +50,16 @@ class UsuarioContr extends BaseController
     {
         $request = service('request');
         $codUsuAlterar = $request->getPost('codUsuAlterar');
-        //$emailUsu = $request->getPost('emailUsu');
-        //$codUsuAlterarF = $request->getPost('codUsuAlterarF');
-
+        $emailUsu = $request->getPost('emailUsu');
+        
         $UsuarioModel = new \App\Models\UsuarioModel();
         $registros=$UsuarioModel->find($codUsuAlterar);
 
-        $emailUsu = $request->getPost('emailUsu');
-        $codUsuAlterarF = $request->getPost('codUsuAlterarF');
+        if ($request->getPost('emailUsu')) {
+            $registros->emailusu = $emailUsu;
+            $UsuarioModel->update($codUsuAlterar, $registros);
 
-        if ($codUsuAlterarF) {
-            $registros->emailUsu = $emailUsu;
-
-            if ($UsuarioModel->update($codUsuAlterarF, $registros)) {
-                return redirect()->to(base_url('UsuarioController/todosUsuarios'));
-            } else {
-                return redirect()->to(base_url('UsuarioController/todosUsuarios'));
-            }
+            return redirect()->to(base_url('UsuarioContr/todosUsuarios/'));
         }
 
         $data['usuario']=$registros;
@@ -86,7 +79,7 @@ class UsuarioContr extends BaseController
         $codUsuAlterar = $request->getPost('codUsuAlterar');
 
         if ($codUsuAlterar) {
-            return $this->alterarUsuario($codUsuAlterar);
+            return $this->alterarUsuario();
         }
 
         echo view('header');

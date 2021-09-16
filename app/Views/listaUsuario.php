@@ -17,7 +17,7 @@
                     <?php echo ($usuario->emailUsu) ?>
                 </td>
                 <td>
-                    <form method="post">
+                    <form method="POST">
                         <input type="hidden" name="codUsuAlterar" value="<?php echo($usuario->codusu); ?>">
                         <button type="submit" class="btn btn-danger">Alterar</button>
                     </form>
