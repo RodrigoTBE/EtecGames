@@ -23,7 +23,10 @@
                     </form>
                 </td>
                 <td>
-                    X
+                    <form method="POST">
+                        <input type="hidden" name="codUsuDeletar" value="<?php echo($usuario->codusu); ?>">
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    </form>
                 </td>
             </tr>
         <?php endforeach; ?>

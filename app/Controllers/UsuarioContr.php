@@ -46,6 +46,43 @@ class UsuarioContr extends BaseController
         echo view('footer');
     }
 
+    public function todosUsuarios()
+    {
+        $UsuarioModel = new \App\Models\UsuarioModel();
+        $registros = $UsuarioModel->find();
+        $data['usuarios'] = $registros;
+
+        $request = service('request');
+        $codUsuDeletar = $request->getPost('codUsuDeletar');
+        $codUsuAlterar = $request->getPost('codUsuAlterar');
+
+        if ($codUsuDeletar) {
+            $this->deletarUsuario($codUsuDeletar);
+        }
+
+        if ($codUsuAlterar) {
+            return $this->alterarUsuario();
+        }
+
+        echo view('header');
+        echo view('listaUsuario', $data);
+        echo view('footer');
+    }
+
+    public function ListaCodUsu()
+    {
+        $request = service('request');
+        $codUsuario = $request->getPost('codUsu');
+        $UsuarioModel = new \App\Models\UsuarioModel();
+        $registros = $UsuarioModel->find($codUsuario);
+
+        $data['usuario'] = $registros;
+
+        echo view('header');
+        echo view('listaCodUsu', $data);
+        echo view('footer');
+    }
+
     public function alterarUsuario()
     {
         $request = service('request');
@@ -69,35 +106,19 @@ class UsuarioContr extends BaseController
         echo view('footer');
     }
 
-    public function todosUsuarios()
-    {
-        $UsuarioModel = new \App\Models\UsuarioModel();
-        $registros = $UsuarioModel->find();
-        $data['usuarios'] = $registros;
-
-        $request = service('request');
-        $codUsuAlterar = $request->getPost('codUsuAlterar');
-
-        if ($codUsuAlterar) {
-            return $this->alterarUsuario();
+    public function deletarUsuario($codUsuDeletar){
+        if (is_null($codUsuDeletar)) {
+            return redirect()->to(base_url('UsuarioContr/todosUsuarios'));
         }
 
-        echo view('header');
-        echo view('listaUsuario', $data);
-        echo view('footer');
-    }
+        $UsuarioModel= new \App\Models\UsuarioModel();
 
-    public function ListaCodUsu()
-    {
-        $request = service('request');
-        $codUsuario = $request->getPost('codUsu');
-        $UsuarioModel = new \App\Models\UsuarioModel();
-        $registros = $UsuarioModel->find($codUsuario);
+        if ($UsuarioModel->delete($codUsuDeletar)) {
+            return redirect()->to(base_url('UsuarioContr/todosUsuarios'));
+        }else {
+            return redirect()->to(base_url('UsuarioContr/todosUsuarios'));
+        }
 
-        $data['usuario'] = $registros;
-
-        echo view('header');
-        echo view('listaCodUsu', $data);
-        echo view('footer');
+        return redirect()->to(base_url('UsuarioContr/todosUsuarios'));
     }
 }
