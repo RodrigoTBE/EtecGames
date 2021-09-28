@@ -50,8 +50,9 @@
                                     Fornecedor
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="#">Pesquisar</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/inserirForn')?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/todosForn')?>">Pesquisar Todos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/')?>">Pesquisar por Código</a></li>
                                     <li><a class="dropdown-item" href="#">Alterar/Deletar</a></li>
                                 </ul>
                             </li>

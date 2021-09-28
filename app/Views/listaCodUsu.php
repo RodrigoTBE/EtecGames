@@ -15,6 +15,8 @@
         <thead>
             <th>Código</th>
             <th>E-mail</th>
+            <th>Alterar</th>
+            <th>Deletar</th>
         </thead>
         <tbody>
 
