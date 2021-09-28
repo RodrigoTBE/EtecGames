@@ -37,11 +37,11 @@ app.baseURL = 'http://localhost/pwiii/etecgames08092021/etecgames/public/'
 # DATABASE
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
-# database.default.database = ci4
-# database.default.username = root
-# database.default.password = root
-# database.default.DBDriver = MySQLi
+database.default.hostname = localhost
+database.default.database = etecgames
+database.default.username = root
+database.default.password = 
+database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
 
 # database.tests.hostname = localhost
