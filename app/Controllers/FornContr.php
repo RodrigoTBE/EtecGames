@@ -52,6 +52,65 @@ public function inserirForn()
         echo view('listaForn', $data);
         echo view('footer');
     }
+/*
+    public function ListaCodUsu()
+    {
+        $request = service('request');
+        $codUsuario = $request->getPost('codUsu');
+        $UsuarioModel = new \App\Models\UsuarioModel();
+        $registros = $UsuarioModel->find($codUsuario);
 
+        $data['usuario'] = $registros;
+
+        echo view('header');
+        echo view('listaCodUsu', $data);
+        echo view('footer');
+    }
+*/  
+    public function alterarForn()
+    {
+        $request = service('request');
+        $codFornAlterar = $request->getPost('codFornAlterar');
+        $nomeForn = $request->getPost('nomeForn');
+        $emailForn = $request->getPost('emailForn');
+        $foneForn = $request->getPost('foneForn');
+
+        $FornModel = new \App\Models\FornModel();
+        $registros=$FornModel->find($codFornAlterar);
+
+        if ($request->getPost('nomeForn') && $request->getPost('emailForn') && $request->getPost('foneForn')) {
+            $registros->nomeForn = $nomeForn;
+            $registros->emailForn = $emailForn;
+            $registros->foneForn = $foneForn;
+
+            $FornModel->update($codFornAlterar, $registros);
+            $FornModel->update($codFornAlterar, $registros);
+            $FornModel->update($codFornAlterar, $registros);
+
+            return redirect()->to(base_url('FornContr/todosForn/'));
+        }
+
+        $data['fornecedor']=$registros;
+
+        echo view('header');
+        echo view('alterarFormForn', $data);
+        echo view('footer');
+    }
+
+    public function deletarForn($codFornDeletar){
+        if (is_null($codFornDeletar)) {
+            return redirect()->to(base_url('FornContr/todosForn'));
+        }
+
+        $FornModel= new \App\Models\FornModel();
+
+        if ($FornModel->delete($codFornDeletar)) {
+            return redirect()->to(base_url('FornContr/todosForn'));
+        }else {
+            return redirect()->to(base_url('FornContr/todosForn'));
+        }
+
+        return redirect()->to(base_url('FornContr/todosForn'));
+    }
 }
 ?>

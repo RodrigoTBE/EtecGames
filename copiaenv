@@ -20,7 +20,7 @@
 # APP
 #--------------------------------------------------------------------
 
-app.baseURL = 'http://localhost/pwiii/etecgames08092021/etecgames/public/'
+app.baseURL = 'http://localhost/etecgames/EtecGames/public/'
 # app.forceGlobalSecureRequests = false
 
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'

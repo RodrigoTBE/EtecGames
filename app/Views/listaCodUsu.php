@@ -32,9 +32,20 @@
                 <td>
                     <?php echo ($emailusu) ?>
                 </td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="codUsuAlterar" value="<?php echo($codusu); ?>">
+                        <button type="submit" class="btn btn-danger">Alterar</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="codUsuDeletar" value="<?php echo($codusu); ?>">
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    </form>
+                </td>
+
             </tr>
         </tbody>
-
     </table>
-
 </form>

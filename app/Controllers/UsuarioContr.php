@@ -78,6 +78,17 @@ class UsuarioContr extends BaseController
 
         $data['usuario'] = $registros;
 
+        $codUsuDeletar = $request->getPost('codUsuDeletar');
+        $codUsuAlterar = $request->getPost('codUsuAlterar');
+
+        if ($codUsuDeletar) {
+            $this->deletarUsuario($codUsuDeletar);
+        }
+
+        if ($codUsuAlterar) {
+            return $this->alterarUsuario();
+        }
+
         echo view('header');
         echo view('listaCodUsu', $data);
         echo view('footer');
