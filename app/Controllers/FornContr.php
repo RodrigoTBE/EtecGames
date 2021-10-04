@@ -52,21 +52,32 @@ public function inserirForn()
         echo view('listaForn', $data);
         echo view('footer');
     }
-/*
-    public function ListaCodUsu()
+
+    public function listaCodForn()
     {
         $request = service('request');
-        $codUsuario = $request->getPost('codUsu');
-        $UsuarioModel = new \App\Models\UsuarioModel();
-        $registros = $UsuarioModel->find($codUsuario);
+        $codForn = $request->getPost('codForn');
+        $FornModel = new \App\Models\FornModel();
+        $registros = $FornModel->find($codForn);
 
-        $data['usuario'] = $registros;
+        $data['fornecedor'] = $registros;
+
+        $codFornDeletar = $request->getPost('codFornDeletar');
+        $codFornAlterar = $request->getPost('codFornAlterar');
+
+        if ($codFornDeletar) {
+            $this->deletarForn($codFornDeletar);
+        }
+
+        if ($codFornAlterar) {
+            return $this->alterarForn();
+        }
 
         echo view('header');
-        echo view('listaCodUsu', $data);
+        echo view('listaCodForn', $data);
         echo view('footer');
     }
-*/  
+
     public function alterarForn()
     {
         $request = service('request');
