@@ -32,7 +32,6 @@
                                     <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/inserirUsuario')?>">Cadastro</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/todosUsuarios')?>">Pesquisar Todos</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/listaCodUsu')?>">Pesquisar por Código</a></li>
-                                    <li><a class="dropdown-item" href="#">Alterar/Deletar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -53,7 +52,6 @@
                                     <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/inserirForn')?>">Cadastro</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/todosForn')?>">Pesquisar Todos</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/listaCodForn')?>">Pesquisar por Código</a></li>
-                                    <li><a class="dropdown-item" href="#">Alterar/Deletar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
