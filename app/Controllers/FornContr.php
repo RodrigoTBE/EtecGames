@@ -89,7 +89,7 @@ public function inserirForn()
         $FornModel = new \App\Models\FornModel();
         $registros=$FornModel->find($codFornAlterar);
 
-        if ($request->getPost('nomeForn') && $request->getPost('emailForn') && $request->getPost('foneForn')) {
+        if ($nomeForn && $emailForn && $foneForn) {
             $registros->nomeForn = $nomeForn;
             $registros->emailForn = $emailForn;
             $registros->foneForn = $foneForn;
