@@ -39,7 +39,7 @@
                                     Funcionário
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCodFunc')?>">Cadastro</a></li>
                                     <li><a class="dropdown-item" href="#">Pesquisar</a></li>
                                     <li><a class="dropdown-item" href="#">Alterar/Deletar</a></li>
                                 </ul>
