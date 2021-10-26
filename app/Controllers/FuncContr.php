@@ -50,5 +50,69 @@ class FuncContr extends BaseController
         echo view('cadFunc', $data);
         echo view('footer');
     }
+
+    public  function BuscaPrincipalCodFunc(){
+        $request = service('request');
+        $codFunc = $request->getPost('codFunc');
+        $FuncModel = new \App\Models\FuncModel();
+        $registros = $FuncModel->find($codFunc);
+
+        $data['funcionario'] = $registros;
+
+        $codFuncAlterar = $request->getPost('codFuncAlterar');
+        $codFuncDeletar = $request->getPost('codFuncDeletar');
+
+        if ($codFuncDeletar) {
+            $this->ExcluirFunc($codFuncDeletar);
+        }
+
+        if ($codFuncAlterar) {
+            return $this->AlterarFunc();
+        }
+
+        echo view('header');
+        echo view('buscaCodFunc', $data);
+        echo view('footer');
+    }
+
+    public function ExcluirFunc($codFuncDeletar){
+        if (is_null($codFuncDeletar)) {
+            return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+        }
+
+        $FuncModel = new \App\Models\FuncModel();
+
+        if ($FuncModel->delete($codFuncDeletar)) {
+            return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+        }else {
+            return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+        }
+
+        return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+    }
+
+    public function AlterarFunc(){
+        $request = service('request');
+        $codFuncAlterar = $request->getPost('codFuncAlterar');
+        $nomeFunc = $request->getPost('nomeFunc');
+        $foneFunc = $request->getPost('foneFunc');
+        
+        $FuncModel = new \App\Models\FuncModel();
+        $registros=$FuncModel->find($codFuncAlterar);
+
+        if ($nomeFunc && $foneFunc) {
+            $registros->nomeFun = $nomeFunc;
+            $registros->foneFun = $foneFunc;
+            $FuncModel->update($codFuncAlterar, $registros);
+
+            return redirect()->to(base_url('FuncContr/BuscaPrincipalCodFunc/'));
+        }
+
+        $data['funcionario']=$registros;
+
+        echo view('header');
+        echo view('buscaCodFunc', $data);
+        echo view('footer');
+    }
 }
 ?>

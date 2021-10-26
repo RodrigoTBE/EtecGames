@@ -1,3 +1,5 @@
+<h1 class="h1 text-center">Para Cadastrar um funcionário, primeiro cadastre um usuário</h1>
+
 <form method="POST" class="form">
     <div>
         <label for="codUsuFunc" class="form-label mt-4">Digite o Código do seu Usuário:</label>
@@ -12,6 +14,9 @@
 $request = service('request');
 $codUsuFunc = isset($usuario->codusu)?$usuario->codusu:0;
 $emailUsu = isset($usuario->emailUsu)?$usuario->emailUsu:'';
+
+if ($codUsuFunc) {
+
 ?>
 
     <h1 class="h1 text-center">Funcionário Encontrado</h1>
@@ -28,12 +33,16 @@ $emailUsu = isset($usuario->emailUsu)?$usuario->emailUsu:'';
         </div>
         <div class="mb-3">
             <label for="nomeFunc" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" aria-describedby="emailHelp">
+            <input type="text" class="form-control" name="nomeFunc" id="nomeFunc" aria-describedby="emailHelp" required>
         </div>
         <div class="mb-3">
             <label for="foneFunc" class="form-label">Telefone</label>
-            <input type="text" class="form-control" name="foneFunc" id="foneFunc">
+            <input type="text" class="form-control" name="foneFunc" id="foneFunc" required>
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
 </form>
+
+<?php
+}
+?>

@@ -36,12 +36,22 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cliente
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../')?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../')?>">Pesquisar Todos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../')?>">Pesquisar por Código</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Funcionário
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCodFunc')?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                                    <li><a class="dropdown-item" href="#">Alterar/Deletar</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/BuscaPrincipalCodFunc')?>">Pesquisar por Código</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaNomeFunc')?>">Pesquisar Por nome</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
