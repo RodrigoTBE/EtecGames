@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Ago-2021 às 02:48
--- Versão do servidor: 10.4.19-MariaDB
--- versão do PHP: 7.4.19
+-- Generation Time: 03-Nov-2021 às 23:01
+-- Versão do servidor: 10.1.38-MariaDB
+-- versão do PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `etecgames`
+-- Database: `etecgames`
 --
 
 -- --------------------------------------------------------
@@ -68,8 +69,15 @@ CREATE TABLE `funcionario_tb` (
   `codFun` int(4) NOT NULL,
   `codusu_FK` int(4) NOT NULL,
   `nomeFun` varchar(100) NOT NULL,
-  `foneFun` int(10) NOT NULL
+  `foneFun` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `funcionario_tb`
+--
+
+INSERT INTO `funcionario_tb` (`codFun`, `codusu_FK`, `nomeFun`, `foneFun`) VALUES
+(1, 3, 'Danilo de Souza Soares', '90903-8845');
 
 -- --------------------------------------------------------
 
@@ -105,6 +113,17 @@ CREATE TABLE `usuario_tb` (
   `SenhaUsu` varchar(90) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `usuario_tb`
+--
+
+INSERT INTO `usuario_tb` (`codusu`, `emailUsu`, `SenhaUsu`) VALUES
+(1, 'Rodrigo.tarcis@gmail.com', '$2y$08$EGbqd/ktBguQGBGZboD4PetEiGslE8hvc.DNrkp/ehcWAg0IuP.Qq'),
+(2, 'Fe.fe@gmail.com', '$2y$08$C2uRTTVLkXZAaxUtqkYg9elMUUxUMqxb3as3DaEU9RQ2q4vehYELS'),
+(3, 'danilo.souza@yahoo.com.br', '$2y$08$ujd6Ew4IbOwpBdC7/qV/R.DTnzdkdEHxUNECipmB/D0JL2z/nhWve'),
+(4, 'biel333@gmail.com', '$2y$08$hHrYu4FaIdLLz11U2RxFDOg6u.G0mpf16pbOeltKE.ppqJxj7Rz.O'),
+(5, 'Naruto.Konoha@Uzumaki.com.br', '$2y$08$tC21SEpiJG3o.Cn3tMkLO.lECl7lBQMRGmtoV7197LslzdGgK1aSC');
+
 -- --------------------------------------------------------
 
 --
@@ -122,37 +141,37 @@ CREATE TABLE `venda_tb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `categoriasjogos_tb`
+-- Indexes for table `categoriasjogos_tb`
 --
 ALTER TABLE `categoriasjogos_tb`
   ADD PRIMARY KEY (`codcatjogo`);
 
 --
--- Índices para tabela `cliente_tb`
+-- Indexes for table `cliente_tb`
 --
 ALTER TABLE `cliente_tb`
   ADD PRIMARY KEY (`CpfCli`),
   ADD KEY `FK_ClienteUsuario` (`codusu_FK`);
 
 --
--- Índices para tabela `fornecedor_tb`
+-- Indexes for table `fornecedor_tb`
 --
 ALTER TABLE `fornecedor_tb`
   ADD PRIMARY KEY (`codForn`);
 
 --
--- Índices para tabela `funcionario_tb`
+-- Indexes for table `funcionario_tb`
 --
 ALTER TABLE `funcionario_tb`
   ADD PRIMARY KEY (`codFun`),
   ADD KEY `FK_FuncionarioUsuario` (`codusu_FK`);
 
 --
--- Índices para tabela `jogos_tb`
+-- Indexes for table `jogos_tb`
 --
 ALTER TABLE `jogos_tb`
   ADD PRIMARY KEY (`codJogo`),
@@ -160,13 +179,13 @@ ALTER TABLE `jogos_tb`
   ADD KEY `FK_CodigoFornecedor` (`codFonecedor_FK`);
 
 --
--- Índices para tabela `usuario_tb`
+-- Indexes for table `usuario_tb`
 --
 ALTER TABLE `usuario_tb`
   ADD PRIMARY KEY (`codusu`);
 
 --
--- Índices para tabela `venda_tb`
+-- Indexes for table `venda_tb`
 --
 ALTER TABLE `venda_tb`
   ADD PRIMARY KEY (`codVenda`),
@@ -175,47 +194,47 @@ ALTER TABLE `venda_tb`
   ADD KEY `FK_CodigoClienteCPF` (`CpfCli_FK`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `categoriasjogos_tb`
+-- AUTO_INCREMENT for table `categoriasjogos_tb`
 --
 ALTER TABLE `categoriasjogos_tb`
   MODIFY `codcatjogo` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `fornecedor_tb`
+-- AUTO_INCREMENT for table `fornecedor_tb`
 --
 ALTER TABLE `fornecedor_tb`
   MODIFY `codForn` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `funcionario_tb`
+-- AUTO_INCREMENT for table `funcionario_tb`
 --
 ALTER TABLE `funcionario_tb`
-  MODIFY `codFun` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `codFun` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `jogos_tb`
+-- AUTO_INCREMENT for table `jogos_tb`
 --
 ALTER TABLE `jogos_tb`
   MODIFY `codJogo` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `usuario_tb`
+-- AUTO_INCREMENT for table `usuario_tb`
 --
 ALTER TABLE `usuario_tb`
-  MODIFY `codusu` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `codusu` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de tabela `venda_tb`
+-- AUTO_INCREMENT for table `venda_tb`
 --
 ALTER TABLE `venda_tb`
   MODIFY `codVenda` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
