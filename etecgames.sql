@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Nov-2021 às 23:01
+-- Generation Time: 08-Nov-2021 às 22:34
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.4
 
@@ -59,6 +59,14 @@ CREATE TABLE `fornecedor_tb` (
   `foneForn` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `fornecedor_tb`
+--
+
+INSERT INTO `fornecedor_tb` (`codForn`, `nomeForn`, `emailForn`, `foneForn`) VALUES
+(1, 'Game Station', 'game_station@gmail.com', '99065-7788'),
+(2, 'Fernando de Souza', 'fernando.souzag@yahoo.com.br', '6533-5589');
+
 -- --------------------------------------------------------
 
 --
@@ -77,7 +85,9 @@ CREATE TABLE `funcionario_tb` (
 --
 
 INSERT INTO `funcionario_tb` (`codFun`, `codusu_FK`, `nomeFun`, `foneFun`) VALUES
-(1, 3, 'Danilo de Souza Soares', '90903-8845');
+(1, 3, 'Danilo de Souza Soares', '90903-8845'),
+(2, 1, 'Rodrigo Tarcis Bueno Elias', '99023-6585'),
+(3, 2, 'Fernanda Lima Gouveia de Souza', '4545-9696');
 
 -- --------------------------------------------------------
 
@@ -207,13 +217,13 @@ ALTER TABLE `categoriasjogos_tb`
 -- AUTO_INCREMENT for table `fornecedor_tb`
 --
 ALTER TABLE `fornecedor_tb`
-  MODIFY `codForn` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `codForn` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `funcionario_tb`
 --
 ALTER TABLE `funcionario_tb`
-  MODIFY `codFun` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codFun` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jogos_tb`
