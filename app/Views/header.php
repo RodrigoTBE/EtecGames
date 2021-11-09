@@ -50,8 +50,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCodFunc')?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/BuscaPrincipalCodFunc')?>">Pesquisar por Código</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaNomeFunc')?>">Pesquisar Por nome</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/BuscaPrincipalFunc')?>">Pesquisar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">

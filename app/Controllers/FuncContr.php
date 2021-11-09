@@ -51,9 +51,10 @@ class FuncContr extends BaseController
         echo view('footer');
     }
 
-    public  function BuscaPrincipalCodFunc(){
+    public  function BuscaPrincipalFunc(){
         $request = service('request');
         $codFunc = $request->getPost('codFunc');
+        $nomeFunc2 = $request->getPost('nomeFunc');
         $FuncModel = new \App\Models\FuncModel();
         $registros = $FuncModel->find($codFunc);
 
@@ -61,6 +62,14 @@ class FuncContr extends BaseController
 
         $codFuncAlterar = $request->getPost('codFuncAlterar');
         $codFuncDeletar = $request->getPost('codFuncDeletar');
+
+        if ($nomeFunc2) {
+            $registros = $FuncModel->find($codFunc);
+        var_dump($registros);
+        }else {
+            $registros = $FuncModel->like('nomeFun',$nomeFunc2)->find();
+            var_dump($registros);
+        }
 
         if ($codFuncDeletar) {
             $this->ExcluirFunc($codFuncDeletar);
@@ -71,7 +80,7 @@ class FuncContr extends BaseController
         }
 
         echo view('header');
-        echo view('buscaCodFunc', $data);
+        echo view('buscaFunc', $data);
         echo view('footer');
     }
 
