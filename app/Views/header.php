@@ -68,9 +68,9 @@
                                     Jogos
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="#">Cadastro de Categorias de Jogos</a></li>
+                                    <li><a class="dropdown-item" href="#">Cadastro de Jogos</a></li>
                                     <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                                    <li><a class="dropdown-item" href="#">Alterar/Deletar</a></li>
                                 </ul>
                             </li>
                         </ul>

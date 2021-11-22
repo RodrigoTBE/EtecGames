@@ -38,7 +38,7 @@
                 <form method="POST" class="form">
                     <div>
                         <label for="nomeFunc" class="form-label mt-4">Digite o nome do funcionário:</label>
-                        <input type="text" name="nomeFunc" id="nomeFunc" class="form-control">
+                        <input type="text" name="nomeFuncBusca" id="nomeFunc" class="form-control">
                     </div>
 
                     <div class="col-12 mt-3 mb-5">
@@ -78,50 +78,48 @@ if ($codFunc) {
         <input type="text" class="form-control" name="foneFunc" id="foneFunc" value="<?=$foneFunc?>" required>
     </div>
 
-
     <button type="submit" class="btn btn-primary">Alterar</button>
 </form>
 
 <form method="post">
     <input type="hidden" name="codFuncDeletar" value="<?=$codFunc?>">
-    <button type="submit" class="btn btn-danger">Deletar</button>
+    <button type="submit" class="btn btn-danger mt-2">Deletar</button>
 </form>
 <?php
 }
 
-$nomeFunc2 = isset($nomeFunc2)?$nomeFunc2:'';
+$nomeFuncBusca = isset($nomeFuncBusca)?$nomeFuncBusca:'';
 
-if ($nomeFunc2) {
+if ($nomeFuncBusca) {       
 ?>
 <table class="table">
     <thead>
         <th>Código</th>
-        <th>E-mail</th>
+        <th>Nome</th>
+        <th>Telefone</th>
         <th>Alterar</th>
         <th>Deletar</th>
     </thead>
     <tbody>
-
-        <?php
-            $codusu = isset($usuario->codusu) ? $usuario->codusu : "";
-            $emailusu = isset($usuario->emailUsu) ? $usuario->emailUsu : "";
-        ?>
         <tr>
             <td>
-                <?php echo ($codusu) ?>
+                <?php echo ($codFunc) ?>
             </td>
             <td>
-                <?php echo ($emailusu) ?>
+                <?php echo ($nomeFuncBusca) ?>
+            </td>
+            <td>
+                <?php echo ($foneFunc) ?>
             </td>
             <td>
                 <form method="POST">
-                    <input type="hidden" name="codUsuAlterar" value="<?php echo($codusu); ?>">
+                    <input type="hidden" name="codFuncAlterar" value="<?php echo($codFunc); ?>">
                     <button type="submit" class="btn btn-danger">Alterar</button>
                 </form>
             </td>
             <td>
                 <form method="POST">
-                    <input type="hidden" name="codUsuDeletar" value="<?php echo($codusu); ?>">
+                    <input type="hidden" name="codFuncDeletar" value="<?php echo($codFunc); ?>">
                     <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </td>

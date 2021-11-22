@@ -54,7 +54,7 @@ class FuncContr extends BaseController
     public  function BuscaPrincipalFunc(){
         $request = service('request');
         $codFunc = $request->getPost('codFunc');
-        $nomeFunc2 = $request->getPost('nomeFunc');
+        $nomeFuncBusca = $request->getPost('nomeFuncBusca')?$request->getPost('nomeFuncBusca'):"";
         $FuncModel = new \App\Models\FuncModel();
         $registros = $FuncModel->find($codFunc);
 
@@ -63,11 +63,10 @@ class FuncContr extends BaseController
         $codFuncAlterar = $request->getPost('codFuncAlterar');
         $codFuncDeletar = $request->getPost('codFuncDeletar');
 
-        if ($nomeFunc2) {
+        if ($codFunc) {
             $registros = $FuncModel->find($codFunc);
-        var_dump($registros);
-        }else {
-            $registros = $FuncModel->like('nomeFun',$nomeFunc2)->find();
+        }else if($nomeFuncBusca) {
+            $registros = $FuncModel->like('nomeFun',$nomeFuncBusca)->find();
             var_dump($registros);
         }
 
@@ -86,18 +85,18 @@ class FuncContr extends BaseController
 
     public function ExcluirFunc($codFuncDeletar){
         if (is_null($codFuncDeletar)) {
-            return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+            return redirect()->to(base_url('funcContr/BuscaPrincipalFunc'));
         }
 
         $FuncModel = new \App\Models\FuncModel();
 
         if ($FuncModel->delete($codFuncDeletar)) {
-            return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+            return redirect()->to(base_url('funcContr/BuscaPrincipalFunc'));
         }else {
-            return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+            return redirect()->to(base_url('funcContr/BuscaPrincipalFunc'));
         }
 
-        return redirect()->to(base_url('funcContr/BuscaPrincipalCodFunc'));
+        return redirect()->to(base_url('funcContr/BuscaPrincipalFunc'));
     }
 
     public function AlterarFunc(){
@@ -114,13 +113,13 @@ class FuncContr extends BaseController
             $registros->foneFun = $foneFunc;
             $FuncModel->update($codFuncAlterar, $registros);
 
-            return redirect()->to(base_url('FuncContr/BuscaPrincipalCodFunc/'));
+            return redirect()->to(base_url('FuncContr/BuscaPrincipalFunc/'));
         }
 
         $data['funcionario']=$registros;
 
         echo view('header');
-        echo view('buscaCodFunc', $data);
+        echo view('buscaFunc', $data);
         echo view('footer');
     }
 }
