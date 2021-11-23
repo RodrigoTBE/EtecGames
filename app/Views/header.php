@@ -22,16 +22,16 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?php echo base_url('../UsuarioContr/areaAdm')?>">Home</a>
+                                <a class="nav-link active" aria-current="page" href="<?php echo base_url('../UsuarioContr/areaAdm') ?>">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Usuário
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/inserirUsuario')?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/todosUsuarios')?>">Pesquisar Todos</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/listaCodUsu')?>">Pesquisar por Código</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/inserirUsuario') ?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/todosUsuarios') ?>">Pesquisar Todos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../UsuarioContr/listaCodUsu') ?>">Pesquisar por Código</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -39,9 +39,9 @@
                                     Cliente
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../')?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../')?>">Pesquisar Todos</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../')?>">Pesquisar por Código</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Pesquisar Todos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Pesquisar por Código</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -49,8 +49,8 @@
                                     Funcionário
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCodFunc')?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/BuscaPrincipalFunc')?>">Pesquisar</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCodFunc') ?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/BuscaPrincipalFunc') ?>">Pesquisar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -58,9 +58,9 @@
                                     Fornecedor
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/inserirForn')?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/todosForn')?>">Pesquisar Todos</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/listaCodForn')?>">Pesquisar por Código</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/inserirForn') ?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/todosForn') ?>">Pesquisar Todos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FornContr/listaCodForn') ?>">Pesquisar por Código</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -68,7 +68,7 @@
                                     Jogos
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Cadastro de Categorias de Jogos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../CatJogosContr/inserirCatJogo') ?>">Cadastro de Categorias de Jogos</a></li>
                                     <li><a class="dropdown-item" href="#">Cadastro de Jogos</a></li>
                                     <li><a class="dropdown-item" href="#">Pesquisar</a></li>
                                 </ul>

@@ -5,7 +5,7 @@ namespace App\Controllers;
 class FornContr extends BaseController
 {
 
-public function inserirForn()
+    public function inserirForn()
     {
         $data['msg'] = '';
 
@@ -87,7 +87,7 @@ public function inserirForn()
         $foneForn = $request->getPost('foneForn');
 
         $FornModel = new \App\Models\FornModel();
-        $registros=$FornModel->find($codFornAlterar);
+        $registros = $FornModel->find($codFornAlterar);
 
         if ($nomeForn && $emailForn && $foneForn) {
             $registros->nomeForn = $nomeForn;
@@ -101,27 +101,27 @@ public function inserirForn()
             return redirect()->to(base_url('FornContr/todosForn/'));
         }
 
-        $data['fornecedor']=$registros;
+        $data['fornecedor'] = $registros;
 
         echo view('header');
         echo view('alterarFormForn', $data);
         echo view('footer');
     }
 
-    public function deletarForn($codFornDeletar){
+    public function deletarForn($codFornDeletar)
+    {
         if (is_null($codFornDeletar)) {
             return redirect()->to(base_url('FornContr/todosForn'));
         }
 
-        $FornModel= new \App\Models\FornModel();
+        $FornModel = new \App\Models\FornModel();
 
         if ($FornModel->delete($codFornDeletar)) {
             return redirect()->to(base_url('FornContr/todosForn'));
-        }else {
+        } else {
             return redirect()->to(base_url('FornContr/todosForn'));
         }
 
         return redirect()->to(base_url('FornContr/todosForn'));
     }
 }
-?>
