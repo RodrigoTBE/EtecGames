@@ -51,4 +51,79 @@ class CliContr extends BaseController
         echo view('cadCli', $data);
         echo view('footer');
     }
+
+    public  function BuscaPrincipalCli()
+    {
+        $request = service('request');
+        $codCli = $request->getPost('codCli');
+        $nomeCliBusca = $request->getPost('nomeCliBusca') ? $request->getPost('nomeCliBusca') : "";
+        $CliModel = new \App\Models\CliModel();
+        $registros = $CliModel->find($codCli);
+
+        $data['cliente'] = $registros;
+
+        $codCliAlterar = $request->getPost('codCliAlterar');
+        $codCliDeletar = $request->getPost('codCliDeletar');
+
+        if ($codCli) {
+            $registros = $CliModel->find($codCli);
+        } else if ($nomeCliBusca) {
+            $registros = $CliModel->like('nomeCli', $nomeCliBusca)->find();
+            var_dump($registros);
+        }
+
+        if ($codCliDeletar) {
+            $this->ExcluirFunc($codCliDeletar);
+        }
+
+        if ($codCliAlterar) {
+            return $this->AlterarFunc();
+        }
+
+        echo view('header');
+        echo view('buscaCli', $data);
+        echo view('footer');
+    }
+
+    public function ExcluirFunc($codCliDeletar)
+    {
+        if (is_null($codCliDeletar)) {
+            return redirect()->to(base_url('CliContr/BuscaPrincipalCli'));
+        }
+
+        $CliModel = new \App\Models\CliModel();
+
+        if ($CliModel->delete($codCliDeletar)) {
+            return redirect()->to(base_url('CliContr/BuscaPrincipalCli'));
+        } else {
+            return redirect()->to(base_url('CliContr/BuscaPrincipalCli'));
+        }
+
+        return redirect()->to(base_url('CliContr/BuscaPrincipalCli'));
+    }
+
+    public function AlterarFunc()
+    {
+        $request = service('request');
+        $codCliAlterar = $request->getPost('codCliAlterar');
+        $nomeCli = $request->getPost('nomeCli');
+        $foneCli = $request->getPost('foneCli');
+
+        $CliModel = new \App\Models\CliModel();
+        $registros = $CliModel->find($codCliAlterar);
+
+        if ($nomeCli && $foneCli) {
+            $registros->nomeCli = $nomeCli;
+            $registros->foneCli = $foneCli;
+            $CliModel->update($codCliAlterar, $registros);
+
+            return redirect()->to(base_url('CliContr/BuscaPrincipalCli'));
+        }
+
+        $data['clientes'] = $registros;
+
+        echo view('header');
+        echo view('buscaCli', $data);
+        echo view('footer');
+    }
 }

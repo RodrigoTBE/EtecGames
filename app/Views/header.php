@@ -40,8 +40,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="<?php echo base_url('../CliContr/ListaCadCodCli') ?>">Cadastro</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Pesquisar Todos</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Pesquisar por Código</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../CliContr/BuscaPrincipalCli') ?>">Pesquisar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
