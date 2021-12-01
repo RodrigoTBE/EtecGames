@@ -2,7 +2,7 @@
 
 <form method="POST" class="form">
     <div>
-        <label for="codUsuFunc" class="form-label mt-4">Digite o Código do seu Usuário:</label>
+        <label for="codUsuFunc" class="form-label mt-4">Digite o Código do Usuário:</label>
         <input type="text" name="codUsuFunc" id="codUsuFunc" class="form-control">
     </div>
 
@@ -24,7 +24,7 @@ if ($codUsuFunc) {
     <form method="POST">
 
         <div class="mb-3">
-            <label for="codUsuFunc" class="form-label">Código do seu usuário</label>
+            <label for="codUsuFunc" class="form-label">Código do usuário</label>
             <input type="text" class="form-control" name="codUsu" id="codUsuFunc" value="<?=$codUsuFunc?>" readonly>
         </div>
         <div class="mb-3">

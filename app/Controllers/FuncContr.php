@@ -30,7 +30,7 @@ class FuncContr extends BaseController
         }
     }
 
-    public function ListaCodFunc()
+    public function ListaCadCodFunc()
     {
         $request = service('request');
         $data['usuario'] = "";

@@ -39,7 +39,7 @@
                                     Cliente
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../CliContr/ListaCadCodCli') ?>">Cadastro</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Pesquisar Todos</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../') ?>">Pesquisar por Código</a></li>
                                 </ul>
@@ -49,7 +49,7 @@
                                     Funcionário
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCodFunc') ?>">Cadastro</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/ListaCadCodFunc') ?>">Cadastro</a></li>
                                     <li><a class="dropdown-item" href="<?php echo base_url('../FuncContr/BuscaPrincipalFunc') ?>">Pesquisar</a></li>
                                 </ul>
                             </li>

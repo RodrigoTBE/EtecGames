@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class CliModel extends Model
 {
     protected $table = 'cliente_tb';
-    protected $primaryKey = 'CpfCli';
-    protected $allowedFields = ['codusu_FK','nomeCli', 'foneCli'];
+    protected $primaryKey = 'CodCli';
+    protected $allowedFields = ['codusu_FK', 'nomeCli', 'foneCli'];
     protected $returnType = 'object';
 }
