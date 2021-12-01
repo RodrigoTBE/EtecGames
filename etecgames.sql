@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 08-Nov-2021 às 22:34
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.4
+-- Host: 127.0.0.1:3308
+-- Tempo de geração: 01-Dez-2021 às 22:36
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `etecgames`
+-- Banco de dados: `etecgames`
 --
 
 -- --------------------------------------------------------
@@ -40,11 +39,22 @@ CREATE TABLE `categoriasjogos_tb` (
 --
 
 CREATE TABLE `cliente_tb` (
-  `CpfCli` int(11) NOT NULL,
+  `CodCli` int(4) NOT NULL,
   `codusu_FK` int(4) NOT NULL,
   `nomeCli` varchar(100) NOT NULL,
   `foneCli` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `cliente_tb`
+--
+
+INSERT INTO `cliente_tb` (`CodCli`, `codusu_FK`, `nomeCli`, `foneCli`) VALUES
+(1, 7, 'Hugo Gabriel da Silva Cardoso', '96685-9699'),
+(2, 11, 'Hugo Chaves', '96685-1234'),
+(3, 5, 'Gabriel Alves Avelino', '98865-7445'),
+(4, 5, 'Gabriel Alves Avelino', '98865-7445'),
+(5, 9, 'Adriana Cláudia Santos de Oliveira', '8465-9987');
 
 -- --------------------------------------------------------
 
@@ -64,8 +74,8 @@ CREATE TABLE `fornecedor_tb` (
 --
 
 INSERT INTO `fornecedor_tb` (`codForn`, `nomeForn`, `emailForn`, `foneForn`) VALUES
-(1, 'Game Station', 'game_station@gmail.com', '99065-7788'),
-(2, 'Fernando de Souza', 'fernando.souzag@yahoo.com.br', '6533-5589');
+(1, 'Bruno Guimarães da Fonseca', 'bruno.gf@yahoo.com.br', '6533-5589'),
+(2, 'Game Station', 'game_station@gmail.com', '99065-7788');
 
 -- --------------------------------------------------------
 
@@ -77,7 +87,7 @@ CREATE TABLE `funcionario_tb` (
   `codFun` int(4) NOT NULL,
   `codusu_FK` int(4) NOT NULL,
   `nomeFun` varchar(100) NOT NULL,
-  `foneFun` varchar(10) NOT NULL
+  `foneFun` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -85,9 +95,10 @@ CREATE TABLE `funcionario_tb` (
 --
 
 INSERT INTO `funcionario_tb` (`codFun`, `codusu_FK`, `nomeFun`, `foneFun`) VALUES
-(1, 3, 'Danilo de Souza Soares', '90903-8845'),
-(2, 1, 'Rodrigo Tarcis Bueno Elias', '99023-6585'),
-(3, 2, 'Fernanda Lima Gouveia de Souza', '4545-9696');
+(1, 2, 'João da Silva Casteliano', 98987),
+(2, 10, 'Roberto Borges da Silva', 9090),
+(3, 10, 'Roberto Borges da Silva', 9090),
+(4, 4, 'Kaio da Silveira Souza', 9090);
 
 -- --------------------------------------------------------
 
@@ -120,7 +131,7 @@ CREATE TABLE `jogos_tb` (
 CREATE TABLE `usuario_tb` (
   `codusu` int(4) NOT NULL,
   `emailUsu` varchar(100) NOT NULL,
-  `SenhaUsu` varchar(90) NOT NULL
+  `SenhaUsu` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -128,11 +139,16 @@ CREATE TABLE `usuario_tb` (
 --
 
 INSERT INTO `usuario_tb` (`codusu`, `emailUsu`, `SenhaUsu`) VALUES
-(1, 'Rodrigo.tarcis@gmail.com', '$2y$08$EGbqd/ktBguQGBGZboD4PetEiGslE8hvc.DNrkp/ehcWAg0IuP.Qq'),
-(2, 'Fe.fe@gmail.com', '$2y$08$C2uRTTVLkXZAaxUtqkYg9elMUUxUMqxb3as3DaEU9RQ2q4vehYELS'),
-(3, 'danilo.souza@yahoo.com.br', '$2y$08$ujd6Ew4IbOwpBdC7/qV/R.DTnzdkdEHxUNECipmB/D0JL2z/nhWve'),
-(4, 'biel333@gmail.com', '$2y$08$hHrYu4FaIdLLz11U2RxFDOg6u.G0mpf16pbOeltKE.ppqJxj7Rz.O'),
-(5, 'Naruto.Konoha@Uzumaki.com.br', '$2y$08$tC21SEpiJG3o.Cn3tMkLO.lECl7lBQMRGmtoV7197LslzdGgK1aSC');
+(1, 'Rodrigo.tarcis2@gmail.com', '0102'),
+(2, 'joao.silva321@yahoo.com.br', 'silvaJoao010101'),
+(3, 'Fernanda.fe@gmail.com', '$2y$08$eO8bYu1UAqhdyZTlpVMvA.r5qnIMSdlwv1wLE60zg9CXk1Ecsn62a'),
+(4, 'Naruto.Konoha@Uzumaki.com.br', '$2y$08$qRu7eW98df9bf1gYEyR3NuD5nQj0AJH1n5HbNwIIQgh0S7yG5kXgi'),
+(5, 'biel333@gmail.com', '$2y$08$KIn1CA7yIqNpTuYHDugRQOeHZtcQf/MbFOXhmdot16fnlAjvJcRSC'),
+(6, 'Hugo2Silva_cardoso@gmail.com', '$2y$08$7..C3Kx9NPRSrYvNbr2mwu3Lf1LfEm4etMGNzf1csRy/2sthhZYj6'),
+(7, 'danilo.souza@yahoo.com.br', '$2y$08$YEA8H9ippOVIHqzWBpQ1jO8FmYNNNDuQ7yGiWKCZch/a0dQwU4/Ue'),
+(9, 'Adriana.Claudia@gmail.com', '$2y$08$1aaGfDG1oOJQVVxIhyVQ6erwJoGIceryIQ2WyzNGcBPNxaujFGw0m'),
+(10, 'Roberto_bd@hotmail.com.br', '$2y$08$UbefHZA1mGgxGOXZG5wo6utYbB1M0BxfoQo2CNkkbxafugKB/3Ram'),
+(11, 'HugoChaves_Silveira@gmail.com', '$2y$08$vMa1JZhKgE4Ec9X1CsetmeR9XoqJ4/hd6P24XpW4IGWlCuZfbF4h.');
 
 -- --------------------------------------------------------
 
@@ -144,44 +160,44 @@ CREATE TABLE `venda_tb` (
   `codVenda` int(4) NOT NULL,
   `codjogo_FK` int(4) NOT NULL,
   `codFun_FK` int(4) NOT NULL,
-  `CpfCli_FK` int(11) NOT NULL,
+  `CodCli_FK` int(4) NOT NULL,
   `qtdVenda` int(3) NOT NULL,
   `dataVenda` int(11) NOT NULL,
   `vlVenda` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `categoriasjogos_tb`
+-- Índices para tabela `categoriasjogos_tb`
 --
 ALTER TABLE `categoriasjogos_tb`
   ADD PRIMARY KEY (`codcatjogo`);
 
 --
--- Indexes for table `cliente_tb`
+-- Índices para tabela `cliente_tb`
 --
 ALTER TABLE `cliente_tb`
-  ADD PRIMARY KEY (`CpfCli`),
+  ADD PRIMARY KEY (`CodCli`),
   ADD KEY `FK_ClienteUsuario` (`codusu_FK`);
 
 --
--- Indexes for table `fornecedor_tb`
+-- Índices para tabela `fornecedor_tb`
 --
 ALTER TABLE `fornecedor_tb`
   ADD PRIMARY KEY (`codForn`);
 
 --
--- Indexes for table `funcionario_tb`
+-- Índices para tabela `funcionario_tb`
 --
 ALTER TABLE `funcionario_tb`
   ADD PRIMARY KEY (`codFun`),
   ADD KEY `FK_FuncionarioUsuario` (`codusu_FK`);
 
 --
--- Indexes for table `jogos_tb`
+-- Índices para tabela `jogos_tb`
 --
 ALTER TABLE `jogos_tb`
   ADD PRIMARY KEY (`codJogo`),
@@ -189,62 +205,68 @@ ALTER TABLE `jogos_tb`
   ADD KEY `FK_CodigoFornecedor` (`codFonecedor_FK`);
 
 --
--- Indexes for table `usuario_tb`
+-- Índices para tabela `usuario_tb`
 --
 ALTER TABLE `usuario_tb`
   ADD PRIMARY KEY (`codusu`);
 
 --
--- Indexes for table `venda_tb`
+-- Índices para tabela `venda_tb`
 --
 ALTER TABLE `venda_tb`
   ADD PRIMARY KEY (`codVenda`),
   ADD KEY `FK_CodigoFuncionario` (`codFun_FK`),
   ADD KEY `FK_CodigoJogo` (`codjogo_FK`),
-  ADD KEY `FK_CodigoClienteCPF` (`CpfCli_FK`);
+  ADD KEY `FK_CodigoClienteCPF` (`CodCli_FK`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `categoriasjogos_tb`
+-- AUTO_INCREMENT de tabela `categoriasjogos_tb`
 --
 ALTER TABLE `categoriasjogos_tb`
   MODIFY `codcatjogo` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `fornecedor_tb`
+-- AUTO_INCREMENT de tabela `cliente_tb`
+--
+ALTER TABLE `cliente_tb`
+  MODIFY `CodCli` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `fornecedor_tb`
 --
 ALTER TABLE `fornecedor_tb`
   MODIFY `codForn` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `funcionario_tb`
+-- AUTO_INCREMENT de tabela `funcionario_tb`
 --
 ALTER TABLE `funcionario_tb`
-  MODIFY `codFun` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codFun` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `jogos_tb`
+-- AUTO_INCREMENT de tabela `jogos_tb`
 --
 ALTER TABLE `jogos_tb`
   MODIFY `codJogo` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `usuario_tb`
+-- AUTO_INCREMENT de tabela `usuario_tb`
 --
 ALTER TABLE `usuario_tb`
-  MODIFY `codusu` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codusu` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `venda_tb`
+-- AUTO_INCREMENT de tabela `venda_tb`
 --
 ALTER TABLE `venda_tb`
   MODIFY `codVenda` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
@@ -270,7 +292,6 @@ ALTER TABLE `jogos_tb`
 -- Limitadores para a tabela `venda_tb`
 --
 ALTER TABLE `venda_tb`
-  ADD CONSTRAINT `FK_CodigoClienteCPF` FOREIGN KEY (`CpfCli_FK`) REFERENCES `cliente_tb` (`CpfCli`),
   ADD CONSTRAINT `FK_CodigoFuncionario` FOREIGN KEY (`codFun_FK`) REFERENCES `funcionario_tb` (`codFun`),
   ADD CONSTRAINT `FK_CodigoJogo` FOREIGN KEY (`codjogo_FK`) REFERENCES `jogos_tb` (`codJogo`);
 COMMIT;
